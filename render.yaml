@@ -1,0 +1,24 @@
+services:
+
+  - type: cron
+
+    name: golf-tee-time-booker
+
+    runtime: python
+
+    buildCommand: pip install -r requirements.txt
+
+    startCommand: python book_tee_time.py
+
+    envVars:
+
+      - key: GOLF_USERNAME
+
+        sync: false
+
+      - key: GOLF_PASSWORD
+
+        sync: false
+
+    postInstallCommand: playwright install
+ 
